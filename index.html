@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+<<<<<<< HEAD
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Beykly | Lo rico también puede ser sano</title>
@@ -233,10 +234,241 @@ font-size:2rem;
 
 }
 </style>
+=======
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beykly | Lo rico también puede ser sano</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Red+Hat+Display:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root {
+      --rosa: #FCBCD4;
+      --verde: #385736;
+      --blanco: #ffffff;
+      --gris: #f7f7f7;
+    }
+
+    * {
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body {
+      font-family: 'Red Hat Display', sans-serif;
+      background: var(--blanco);
+      color: var(--verde);
+      overflow-x:hidden;
+    }
+
+    /* HEADER */
+    header {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:15px 40px;
+      position:fixed;
+      width:100%;
+      top:0;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(10px);
+      z-index:1000;
+    }
+
+    .logo img {
+      height:75px;
+    }
+
+    nav a {
+      margin-left:25px;
+      text-decoration:none;
+      color:var(--verde);
+      position:relative;
+      font-weight:500;
+    }
+
+    nav a::after {
+      content:"";
+      position:absolute;
+      bottom:-4px;
+      left:0;
+      width:0%;
+      height:2px;
+      background:var(--rosa);
+      transition:.3s;
+    }
+
+    nav a:hover::after {
+      width:100%;
+    }
+
+    section {
+      padding:100px 30px;
+    }
+
+    /* HERO (CORREGIDO) */
+    .hero {
+      height:100vh;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      color:white;
+      position:relative;
+      overflow:hidden;
+    }
+
+    /* Imagen de fondo SIN espacios negros */
+    .hero::before {
+      content:"";
+      position:absolute;
+      width:100%;
+      height:100%;
+      background:url('fondo.png') center center / cover no-repeat;
+      /* puedes ajustar aquí si quieres mover la imagen */
+      /* background-position: 60% 40%; */
+      z-index:-2;
+    }
+
+    /* Oscurecer imagen */
+    .hero::after {
+      content:"";
+      position:absolute;
+      width:100%;
+      height:100%;
+      background:rgba(0,0,0,.4);
+      z-index:-1;
+    }
+
+    .hero h1 {
+      font-size:48px;
+      font-family:'Poppins', sans-serif;
+      animation: fadeUp 1s ease;
+    }
+
+    .hero p {
+      margin:15px 0;
+      max-width:500px;
+      animation: fadeUp 1.2s ease;
+    }
+
+    .btn {
+      background:var(--rosa);
+      color:var(--verde);
+      padding:12px 28px;
+      border-radius:30px;
+      text-decoration:none;
+      font-weight:600;
+      transition:.3s;
+    }
+
+    .btn:hover {
+      background:var(--verde);
+      color:white;
+      transform:scale(1.05);
+    }
+
+    /* BENEFICIOS */
+    .benefits {
+      background:#eef4f3;
+    }
+
+    .benefits-container {
+      max-width:800px;
+      margin:0 auto;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px 40px;
+    }
+
+    .benefit-item {
+      font-size:18px;
+      padding:12px 0;
+      border-bottom:1px solid rgba(0,0,0,0.1);
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:10px;
+    }
+
+    .benefit-item i {
+      color:var(--rosa);
+    }
+
+    @media(max-width:600px){
+      .benefits-container{
+        grid-template-columns:1fr;
+      }
+    }
+
+    /* SOCIAL */
+    .social {
+      text-align:center;
+    }
+
+    .icons {
+      display:flex;
+      justify-content:center;
+      gap:25px;
+      margin-top:20px;
+    }
+
+    .icons a {
+      width:60px;
+      height:60px;
+      border-radius:20px;
+      background:linear-gradient(145deg, #ffffff, #f0f0f0);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:22px;
+      color:var(--verde);
+      transition:.3s;
+      box-shadow:0 8px 20px rgba(0,0,0,0.08);
+    }
+
+    .icons a:hover {
+      background:var(--rosa);
+      transform:translateY(-6px) scale(1.05);
+      box-shadow:0 15px 30px rgba(0,0,0,0.15);
+    }
+
+    footer {
+      background:var(--verde);
+      color:white;
+      text-align:center;
+      padding:30px;
+    }
+
+    /* ANIMACIONES */
+    .reveal {
+      opacity:0;
+      transform:translateY(40px);
+      transition:1s;
+    }
+
+    .reveal.active {
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    @keyframes fadeUp {
+      from { opacity:0; transform:translateY(30px); }
+      to { opacity:1; transform:translateY(0); }
+    }
+  </style>
+>>>>>>> 6f9c848e325a14dff201e4bea3f22c88409895d7
 </head>
 
 <body>
 
+<<<<<<< HEAD
 <header id="header">
 <div class="logo">
 <img src="logo.png" alt="Beykly">
@@ -291,3 +523,63 @@ header.classList.toggle("scrolled",window.scrollY>50);
 
 </body>
 </html>
+=======
+<header>
+  <div class="logo">
+    <img src="logo.png" alt="logo">
+  </div>
+
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#beneficios">Beneficios</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+</header>
+
+<section class="hero" id="inicio">
+  <h1>Lo rico también puede ser sano</h1>
+  <p>Postres saludables, sin culpa y con ingredientes reales</p>
+  <a href="#beneficios" class="btn">Explorar</a>
+</section>
+
+<section class="benefits reveal" id="beneficios">
+  <div class="benefits-container">
+    <div class="benefit-item"><i class="fas fa-leaf"></i> Opciones veganas</div>
+    <div class="benefit-item"><i class="fas fa-fire"></i> Opciones keto</div>
+    <div class="benefit-item"><i class="fas fa-ban"></i> Sin azúcar añadida</div>
+    <div class="benefit-item"><i class="fas fa-heart"></i> Bajas en calorías</div>
+    <div class="benefit-item"><i class="fas fa-wheat-awn"></i> Sin gluten</div>
+    <div class="benefit-item"><i class="fas fa-box"></i> Diferentes tamaños</div>
+    <div class="benefit-item"><i class="fas fa-chart-simple"></i> Tablas nutricionales claras</div>
+    <div class="benefit-item"><i class="fas fa-seedling"></i> Ingredientes naturales</div>
+  </div>
+</section>
+
+<section class="social reveal" id="contacto">
+  <h2>Conecta con nosotros</h2>
+
+  <div class="icons">
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-tiktok"></i></a>
+    <a href="#"><i class="fab fa-whatsapp"></i></a>
+  </div>
+</section>
+
+<footer>
+  © 2026 Beykly — Lo rico también puede ser sano
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    document.querySelectorAll('.reveal').forEach(el => {
+      const top = el.getBoundingClientRect().top;
+      if(top < window.innerHeight - 100){
+        el.classList.add('active');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
+>>>>>>> 6f9c848e325a14dff201e4bea3f22c88409895d7
