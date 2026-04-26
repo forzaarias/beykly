@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menú | Beykly</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Red+Hat+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+:root{
+--verde:#385736;
+--verde-oscuro:#2a4229;
+--dorado:#C5A059;
+--blanco:#fff;
+}
+
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+font-family:'Red Hat Display',sans-serif;
+color:var(--verde);
+background:#fcfcfc;
+}
+
+/* HEADER (IGUAL AL INDEX) */
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:12px 8%;
+position:fixed;
+width:100%;
+top:0;
+background:rgba(56,87,54,.95);
+backdrop-filter:blur(8px);
+border-bottom:2px solid var(--dorado);
+z-index:1000;
+transition:.3s;
+}
+
+header.scrolled{
+padding:8px 8%;
+}
+
+.logo img{
+height:110px;
+transition:.3s;
+}
+
+header.scrolled .logo img{
+height:80px;
+}
+
+nav{
+display:flex;
+gap:35px;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+font-size:14px;
+font-weight:500;
+letter-spacing:1px;
+position:relative;
+opacity:.9;
+}
+
+nav a::after{
+content:"";
+position:absolute;
+bottom:-5px;
+left:0;
+width:0;
+height:2px;
+background:var(--dorado);
+transition:.3s;
+}
+
+nav a:hover{
+opacity:1;
+}
+
+nav a:hover::after{
+width:100%;
+}
+
+/* HERO MENU */
+.hero-menu{
+padding:180px 8% 40px;
+text-align:center;
+}
+
+.hero-menu h1{
+font-family:'Poppins';
+font-size:2.5rem;
+margin-bottom:10px;
+animation:fadeDown 1s ease;
+}
+
+@keyframes fadeDown{
+from{opacity:0;transform:translateY(-20px);}
+to{opacity:1;transform:translateY(0);}
+}
+
+/* GRID PRODUCTOS */
+.menu-container{
+padding:40px 8% 80px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+}
+
+/* CARD */
+.card{
+background:white;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 10px 25px rgba(0,0,0,.05);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-6px);
+}
+
+/* IMAGEN */
+.card-img{
+height:220px;
+background:#eee; /* espacio para imagen */
+}
+
+.card-img img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+/* BODY */
+.card-body{
+padding:20px;
+text-align:center;
+}
+
+.card-body h3{
+font-family:'Poppins';
+margin-bottom:10px;
+}
+
+.card-body p{
+font-size:.9rem;
+color:#666;
+margin-bottom:10px;
+}
+
+.price{
+display:block;
+color:var(--dorado);
+font-weight:700;
+font-size:1.2rem;
+margin-bottom:15px;
+}
+
+/* BOTÓN WHATSAPP ELEGANTE */
+.btn-ws{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:8px;
+padding:10px 25px;
+border-radius:50px;
+text-decoration:none;
+font-weight:600;
+border:2px solid var(--dorado);
+color:var(--verde);
+background:white;
+transition:.2s;
+}
+
+.btn-ws i{
+color:var(--verde);
+}
+
+/* SIN CAMBIO DE COLOR (como pediste) */
+.btn-ws:hover{
+transform:scale(1.05);
+}
+
+/* FOOTER */
+footer{
+background:var(--verde-oscuro);
+color:white;
+text-align:center;
+padding:40px;
+margin-top:50px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+.logo img{
+height:80px;
+}
+
+header.scrolled .logo img{
+height:65px;
+}
+
+nav{
+display:none;
+}
+
+.hero-menu{
+padding-top:150px;
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<header id="header">
+<div class="logo">
+<img src="logo.png">
+</div>
+
+<nav>
+<a href="index.html">Inicio</a>
+<a href="index.html#beneficios">Beneficios</a>
+<a href="#">Menú</a>
+</nav>
+</header>
+
+<section class="hero-menu">
+<h1>Nuestras Delicias</h1>
+<p>Explora nuestro menú saludable</p>
+</section>
+
+<main class="menu-container">
+
+<!-- PRODUCTOS -->
+<!-- puedes cambiar imágenes luego -->
+
+<div class="card">
+<div class="card-img"><img src=""></div>
+<div class="card-body">
+<h3>Cheesecake Fresa</h3>
+<p>Suave, natural y sin azúcar</p>
+<span class="price">$12.900</span>
+<a href="#" class="btn-ws"><i class="fab fa-whatsapp"></i> Pedir</a>
+</div>
+</div>
+
+<div class="card">
+<div class="card-img"><img src=""></div>
+<div class="card-body">
+<h3>Brownie Keto</h3>
+<p>Chocolate intenso sin culpa</p>
+<span class="price">$10.900</span>
+<a href="#" class="btn-ws"><i class="fab fa-whatsapp"></i> Pedir</a>
+</div>
+</div>
+
+<div class="card">
+<div class="card-img"><img src=""></div>
+<div class="card-body">
+<h3>Tarta Limón</h3>
+<p>Frescura cítrica natural</p>
+<span class="price">$11.900</span>
+<a href="#" class="btn-ws"><i class="fab fa-whatsapp"></i> Pedir</a>
+</div>
+</div>
+
+<!-- DUPLICA ESTOS BLOQUES PARA MÁS PRODUCTOS -->
+
+</main>
+
+<footer>
+<p>&copy; 2026 Beykly</p>
+</footer>
+
+<script>
+window.addEventListener("scroll",()=>{
+const header=document.getElementById("header");
+header.classList.toggle("scrolled",window.scrollY>50);
+});
+</script>
+
+</body>
+</html>
