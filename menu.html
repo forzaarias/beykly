@@ -1,293 +1,778 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Menú | Beykly</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Gourmet | Beykly</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Red+Hat+Display:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Tipografías Premium: Playfair Display, Montserrat y Cinzel Decorative para el título -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-<style>
-:root{
---verde:#385736;
---verde-oscuro:#2a4229;
---dorado:#C5A059;
---blanco:#fff;
-}
+    <style>
+        :root {
+            --verde: #385736;
+            --verde-oscuro: #2a4229;
+            --dorado: #C5A059;
+            --blanco: #fff;
+            --fondo: #fbfbfa; 
+            --texto-suave: #666;
+            --text-muted: #61564C;
+            --cubic-bezier: cubic-bezier(0.25, 1, 0.5, 1);
+        }
 
-/* RESET */
-*{margin:0;padding:0;box-sizing:border-box;}
+        /* RESET */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-body{
-font-family:'Red Hat Display',sans-serif;
-color:var(--verde);
-background:#fcfcfc;
-}
+        html { scroll-behavior: smooth; }
 
-/* HEADER (IGUAL AL INDEX) */
-header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:12px 8%;
-position:fixed;
-width:100%;
-top:0;
-background:rgba(56,87,54,.95);
-backdrop-filter:blur(8px);
-border-bottom:2px solid var(--dorado);
-z-index:1000;
-transition:.3s;
-}
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--verde);
+            background: var(--fondo);
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
 
-header.scrolled{
-padding:8px 8%;
-}
+        /* HEADER PREMIUM AMPLIADO */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 8%;
+            position: fixed;
+            width: 100%;
+            height: 130px; /* Mayor altura de cabecera para albergar un logo imponente */
+            top: 0;
+            background: var(--verde);
+            border-bottom: 1px solid rgba(197, 160, 89, 0.15);
+            z-index: 1000;
+            transition: all .4s var(--cubic-bezier);
+        }
 
-.logo img{
-height:110px;
-transition:.3s;
-}
+        /* CONTENEDOR LOGO MAXIMIZADO */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+            padding: 10px 0;
+        }
 
-header.scrolled .logo img{
-height:80px;
-}
+        .logo-container:hover {
+            transform: scale(1.02);
+        }
 
-nav{
-display:flex;
-gap:35px;
-}
+        .logo-img {
+            max-height: 105px; /* Logo notablemente más grande y protagonista en PC */
+            width: auto;
+            display: block;
+        }
 
-nav a{
-color:white;
-text-decoration:none;
-font-size:14px;
-font-weight:500;
-letter-spacing:1px;
-position:relative;
-opacity:.9;
-}
+        .right-header {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
 
-nav a::after{
-content:"";
-position:absolute;
-bottom:-5px;
-left:0;
-width:0;
-height:2px;
-background:var(--dorado);
-transition:.3s;
-}
+        nav {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
 
-nav a:hover{
-opacity:1;
-}
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            opacity: .9;
+            transition: .3s;
+        }
 
-nav a:hover::after{
-width:100%;
-}
+        nav a:hover {
+            color: var(--dorado);
+        }
 
-/* HERO MENU */
-.hero-menu{
-padding:180px 8% 40px;
-text-align:center;
-}
+        /* Botón de Carrito Elegante */
+        .cart-btn {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: var(--blanco);
+            padding: 12px 22px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: all 0.3s var(--cubic-bezier);
+            font-weight: 500;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-.hero-menu h1{
-font-family:'Poppins';
-font-size:2.5rem;
-margin-bottom:10px;
-animation:fadeDown 1s ease;
-}
+        .cart-btn:hover {
+            border-color: var(--dorado);
+            color: var(--dorado);
+        }
 
-@keyframes fadeDown{
-from{opacity:0;transform:translateY(-20px);}
-to{opacity:1;transform:translateY(0);}
-}
+        #cart-count {
+            background-color: var(--dorado);
+            color: var(--blanco);
+            font-size: 0.75rem;
+            min-width: 20px;
+            height: 20px;
+            padding: 0 4px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
 
-/* GRID PRODUCTOS */
-.menu-container{
-padding:40px 8% 80px;
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:30px;
-}
+        @keyframes shake {
+            0%, 100% { transform: scale(1); }
+            20%, 60% { transform: scale(1.1) rotate(-4deg); }
+            40%, 80% { transform: scale(1.1) rotate(4deg); }
+        }
 
-/* CARD */
-.card{
-background:white;
-border-radius:20px;
-overflow:hidden;
-box-shadow:0 10px 25px rgba(0,0,0,.05);
-transition:.3s;
-}
+        .shake-animation { animation: shake 0.4s ease-in-out; }
 
-.card:hover{
-transform:translateY(-6px);
-}
+        /* SECCIÓN DEL MENÚ ADJUSTADA */
+        .menu-section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 190px 8% 100px; /* Compensación por la altura extendida del header */
+        }
 
-/* IMAGEN */
-.card-img{
-height:220px;
-background:#eee; /* espacio para imagen */
-}
+        /* TITULO DE MENU CON TIPOGRAFÍA MEDIEVAL PREMIUM */
+        .menu-main-title {
+            font-family: 'Cinzel Decorative', serif;
+            color: var(--verde-oscuro);
+            font-size: 2.5rem;
+            letter-spacing: 4px;
+            text-align: center;
+            margin-bottom: 50px;
+            text-shadow: 0px 4px 12px rgba(56, 87, 54, 0.1);
+        }
 
-.card-img img{
-width:100%;
-height:100%;
-object-fit:cover;
-}
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 45px 35px; 
+        }
 
-/* BODY */
-.card-body{
-padding:20px;
-text-align:center;
-}
+        /* ARTÍCULO / PLATO PREMIUM */
+        .menu-item {
+            background: transparent;
+            display: flex;
+            flex-direction: column;
+            transition: .4s var(--cubic-bezier);
+        }
 
-.card-body h3{
-font-family:'Poppins';
-margin-bottom:10px;
-}
+        /* CONTENEDOR DE IMAGEN PEQUEÑA/MEDIANA COMPACTA */
+        .item-img-box {
+            position: relative;
+            width: 100%;
+            padding-top: 55%; 
+            overflow: hidden;
+            background: #f4f4f2;
+            margin-bottom: 18px;
+            border-radius: 4px;
+        }
 
-.card-body p{
-font-size:.9rem;
-color:#666;
-margin-bottom:10px;
-}
+        .item-img-box img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s var(--cubic-bezier);
+        }
 
-.price{
-display:block;
-color:var(--dorado);
-font-weight:700;
-font-size:1.2rem;
-margin-bottom:15px;
-}
+        .menu-item:hover .item-img-box img {
+            transform: scale(1.05);
+        }
 
-/* BOTÓN WHATSAPP ELEGANTE */
-.btn-ws{
-display:flex;
-justify-content:center;
-align-items:center;
-gap:8px;
-padding:10px 25px;
-border-radius:50px;
-text-decoration:none;
-font-weight:600;
-border:2px solid var(--dorado);
-color:var(--verde);
-background:white;
-transition:.2s;
-}
+        /* DETALLES DEL PLATO */
+        .item-info {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            text-align: left;
+        }
 
-.btn-ws i{
-color:var(--verde);
-}
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 10px;
+            gap: 12px;
+        }
 
-/* SIN CAMBIO DE COLOR (como pediste) */
-.btn-ws:hover{
-transform:scale(1.05);
-}
+        .item-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: var(--verde-oscuro);
+        }
 
-/* FOOTER */
-footer{
-background:var(--verde-oscuro);
-color:white;
-text-align:center;
-padding:40px;
-margin-top:50px;
-}
+        .item-divider {
+            flex-grow: 1;
+            border-bottom: 1px dotted rgba(197, 160, 89, 0.3);
+            position: relative;
+            top: -5px;
+        }
 
-/* MOBILE */
-@media(max-width:768px){
+        .price {
+            color: var(--dorado);
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            font-size: 1.35rem;
+            white-space: nowrap;
+        }
 
-.logo img{
-height:80px;
-}
+        .item-info p {
+            font-size: 0.92rem;
+            color: var(--texto-suave);
+            line-height: 1.5;
+            margin-bottom: 18px;
+            font-weight: 300;
+        }
 
-header.scrolled .logo img{
-height:65px;
-}
+        /* BOTÓN DE PEDIDO ESTILO LINK ALTA COSTURA */
+        .btn-order {
+            align-self: flex-start;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 4px 0;
+            background: none;
+            border: none;
+            color: var(--verde-oscuro);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 1px solid var(--dorado);
+            cursor: pointer;
+            transition: all .3s ease;
+        }
 
-nav{
-display:none;
-}
+        .btn-order i {
+            font-size: 0.95rem;
+            color: var(--dorado);
+        }
 
-.hero-menu{
-padding-top:150px;
-}
+        .menu-item:hover .btn-order {
+            color: var(--dorado);
+            border-bottom-color: var(--verde);
+        }
 
-}
-</style>
+        /* MODAL CARRITO DE COMPRAS BOUTIQUE */
+        .cart-overlay {
+            position: fixed;
+            inset: 0;
+            background-color: rgba(42, 66, 41, 0.4);
+            backdrop-filter: blur(4px);
+            z-index: 1999;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s var(--cubic-bezier);
+        }
+
+        .cart-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .cart-modal {
+            position: fixed;
+            top: 0;
+            right: -460px;
+            width: 440px;
+            height: 100vh;
+            background-color: var(--fondo);
+            box-shadow: -15px 0 50px rgba(0, 0, 0, 0.08);
+            z-index: 2000;
+            padding: 45px 35px;
+            display: flex;
+            flex-direction: column;
+            transition: right 0.5s var(--cubic-bezier);
+        }
+
+        .cart-modal.active { right: 0; }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid rgba(56, 87, 54, 0.1);
+            padding-bottom: 20px;
+        }
+
+        .cart-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--verde-oscuro);
+        }
+
+        .close-cart {
+            background: none;
+            border: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            cursor: pointer;
+            letter-spacing: 1px;
+        }
+
+        .close-cart:hover { color: var(--dorado); }
+
+        #cart-items {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding-right: 8px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(56, 87, 54, 0.06);
+        }
+
+        .cart-item-info h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem;
+            color: var(--verde-oscuro);
+            margin-bottom: 4px;
+        }
+
+        .cart-item-info p {
+            font-size: 0.95rem;
+            color: var(--dorado);
+            font-weight: 600;
+        }
+
+        .cart-item-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .cart-item-actions button {
+            width: 28px;
+            height: 28px;
+            background-color: var(--blanco);
+            border: 1px solid rgba(56, 87, 54, 0.15);
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--verde-oscuro);
+            transition: all 0.2s ease;
+        }
+
+        .cart-item-actions button:hover {
+            background-color: var(--verde);
+            color: var(--blanco);
+        }
+
+        .cart-item-actions .qty {
+            font-size: 0.95rem;
+            font-weight: 700;
+            min-width: 20px;
+            text-align: center;
+        }
+
+        .cart-footer {
+            border-top: 1px solid rgba(56, 87, 54, 0.1);
+            padding-top: 30px;
+            margin-top: 20px;
+        }
+
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            color: var(--verde-oscuro);
+        }
+
+        #total {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--dorado);
+        }
+
+        #whatsappBtn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--verde);
+            color: var(--blanco);
+            text-decoration: none;
+            padding: 16px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            transition: all 0.4s var(--cubic-bezier);
+        }
+
+        #whatsappBtn:hover {
+            background-color: var(--dorado);
+            transform: translateY(-2px);
+        }
+
+        /* FOOTER CLÁSICO */
+        footer {
+            background: var(--verde-oscuro);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            border-top: 1px solid var(--dorado);
+        }
+
+        footer p {
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0.7;
+        }
+
+        /* ==========================================================================
+           RESPONSIVE / ENFOQUE DISPOSITIVOS MÓVILES
+           ========================================================================== */
+        @media(max-width:991px) {
+            .cart-modal { width: 100%; right: -100%; padding: 40px 24px; }
+        }
+
+        @media(max-width:768px) {
+            header { 
+                height: 105px; /* Altura ideal en celulares para el logo ampliado */
+                padding: 0 5%; 
+            }
+            .logo-img { 
+                max-height: 80px; /* Logo notablemente grande y nítido en celulares */
+            }
+            .right-header { gap: 15px; }
+            nav { display: none; }
+            
+            .menu-section { 
+                padding-top: 145px; /* Evita solapamiento con el nuevo tamaño del header móvil */
+                padding-left: 6%; 
+                padding-right: 6%; 
+            }
+            .menu-main-title { 
+                font-size: 2rem; 
+                margin-bottom: 35px; 
+            }
+            .menu-grid { 
+                grid-template-columns: 1fr;
+                gap: 35px; 
+            }
+            .item-img-box {
+                height: 180px; 
+            }
+            .item-header { 
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .item-divider { 
+                display: none; 
+            }
+            .item-info h3 {
+                font-size: 1.2rem;
+            }
+            .price {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
 <header id="header">
-<div class="logo">
-<img src="logo.png">
-</div>
+    <a href="index.html" class="logo-container">
+        <img src="logo.png" alt="Logo Beykly" class="logo-img">
+    </a>
 
-<nav>
-<a href="index.html">Inicio</a>
-<a href="index.html#beneficios">Beneficios</a>
-<a href="#">Menú</a>
-</nav>
+    <div class="right-header">
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="index.html#beneficios">Beneficios</a>
+            <a href="#">Menú</a>
+        </nav>
+
+        <div class="cart-btn" onclick="toggleCart(true)">
+            <span>🛒 Carrito</span>
+            <span id="cart-count">0</span>
+        </div>
+    </div>
 </header>
 
-<section class="hero-menu">
-<h1>Nuestras Delicias</h1>
-<p>Explora nuestro menú saludable</p>
-</section>
+<main class="menu-section">
+    <h1 class="menu-main-title">Menú</h1>
 
-<main class="menu-container">
+    <div class="menu-grid">
 
-<!-- PRODUCTOS -->
-<!-- puedes cambiar imágenes luego -->
+        <!-- PRODUCTO 1 -->
+        <article class="menu-item">
+            <div class="item-img-box">
+                <img src="img_menu/cuchariable_2.jpg" alt="CUCHAREABLE PISTACHO">
+            </div>
+            <div class="item-info">
+                <div class="item-header">
+                    <h3>CUCHAREABLE PISTACHO</h3>
+                    <div class="item-divider"></div>
+                    <span class="price">$17.500</span>
+                </div>
+                <p>Suave, natural y sin azúcar añadida. Una textura cremosa sobre una base crocante artesanal.</p>
+                <button class="btn-order" onclick="addToCart('CUCHAREABLE PISTACHO', 17500)">
+                    Pedir orden <i class="fab fa-whatsapp"></i>
+                </button>
+            </div>
+        </article>
 
-<div class="card">
-<div class="card-img"><img src=""></div>
-<div class="card-body">
-<h3>Cheesecake Fresa</h3>
-<p>Suave, natural y sin azúcar</p>
-<span class="price">$12.900</span>
-<a href="#" class="btn-ws"><i class="fab fa-whatsapp"></i> Pedir</a>
-</div>
-</div>
+        <!-- PRODUCTO 2 -->
+        <article class="menu-item">
+            <div class="item-img-box">
+                <img src="img_menu/cuchariable_1.jpg" alt="CUCHAREABLE CHOCOLATE">
+            </div>
+            <div class="item-info">
+                <div class="item-header">
+                    <h3>CUCHAREABLE CHOCOLATE</h3>
+                    <div class="item-divider"></div>
+                    <span class="price">$17.500</span>
+                </div>
+                <p>Chocolate de origen intenso fundido a la perfección. Una delicia baja en carbohidratos pura.</p>
+                <button class="btn-order" onclick="addToCart('CUCHAREABLE CHOCOLATE', 17500)">
+                    Pedir orden <i class="fab fa-whatsapp"></i>
+                </button>
+            </div>
+        </article>
 
-<div class="card">
-<div class="card-img"><img src=""></div>
-<div class="card-body">
-<h3>Brownie Keto</h3>
-<p>Chocolate intenso sin culpa</p>
-<span class="price">$10.900</span>
-<a href="#" class="btn-ws"><i class="fab fa-whatsapp"></i> Pedir</a>
-</div>
-</div>
+        <!-- PRODUCTO 3 -->
+        <article class="menu-item">
+            <div class="item-img-box">
+                <img src="img_menu/cuchariable.jpg" alt="CUCHAREABLE ZANAHORIA">
+            </div>
+            <div class="item-info">
+                <div class="item-header">
+                    <h3>CUCHAREABLE ZANAHORIA</h3>
+                    <div class="item-divider"></div>
+                    <span class="price">$17.500</span>
+                </div>
+                <p>Frescura cítrica natural con un merengue ligero que equilibra cada bocado a la perfección.</p>
+                <button class="btn-order" onclick="addToCart('CUCHAREABLE ZANAHORIA', 17500)">
+                    Pedir orden <i class="fab fa-whatsapp"></i>
+                </button>
+            </div>
+        </article>
 
-<div class="card">
-<div class="card-img"><img src=""></div>
-<div class="card-body">
-<h3>Tarta Limón</h3>
-<p>Frescura cítrica natural</p>
-<span class="price">$11.900</span>
-<a href="#" class="btn-ws"><i class="fab fa-whatsapp"></i> Pedir</a>
-</div>
-</div>
+        <!-- PRODUCTO 4 -->
+        <article class="menu-item">
+            <div class="item-img-box">
+                <img src="img_menu/cuchariable_4.jpg" alt="CUCHAREABLE MOCACCINO">
+            </div>
+            <div class="item-info">
+                <div class="item-header">
+                    <h3>CCUCHAREABLE MOCACCINO</h3>
+                    <div class="item-divider"></div>
+                    <span class="price">$17.500</span>
+                </div>
+                <p>Suave, natural y sin azúcar añadida. Una textura cremosa sobre una base crocante artesanal.</p>
+                <button class="btn-order" onclick="addToCart('CCUCHAREABLE MOCACCINO', 17500)">
+                    Pedir orden <i class="fab fa-whatsapp"></i>
+                </button>
+            </div>
+        </article>
 
-<!-- DUPLICA ESTOS BLOQUES PARA MÁS PRODUCTOS -->
+        <!-- PRODUCTO 5 -->
+        <article class="menu-item">
+            <div class="item-img-box">
+                <img src="img_menu/cuchariable_3.jpg" alt="CUCHAREABLE FRUTOS ROJOS">
+            </div>
+            <div class="item-info">
+                <div class="item-header">
+                    <h3>CUCHAREABLE FRUTOS ROJOS</h3>
+                    <div class="item-divider"></div>
+                    <span class="price">$17.500</span>
+                </div>
+                <p>Suave, natural y sin azúcar añadida. Una textura cremosa sobre una base crocante artesanal.</p>
+                <button class="btn-order" onclick="addToCart('CUCHAREABLE FRUTOS ROJOSá', 17500)">
+                    Pedir orden <i class="fab fa-whatsapp"></i>
+                </button>
+            </div>
+        </article>
 
+        <!-- PRODUCTO 6 -->
+        <article class="menu-item">
+            <div class="item-img-box">
+                <img src="img_menu/cuchariable_5.jpg" alt="CUCHAREABLE AREQUIPE">
+            </div>
+            <div class="item-info">
+                <div class="item-header">
+                    <h3>CUCHAREABLE AREQUIPE</h3>
+                    <div class="item-divider"></div>
+                    <span class="price">$17.500</span>
+                </div>
+                <p>Suave, natural y sin azúcar añadida. Una textura cremosa sobre una base crocante artesanal.</p>
+                <button class="btn-order" onclick="addToCart('CUCHAREABLE AREQUIPE', 17500)">
+                    Pedir orden <i class="fab fa-whatsapp"></i>
+                </button>
+            </div>
+        </article>
+
+        <!-- PRODUCTO 7 -->
+        <article class="menu-item">
+            <div class="item-img-box">
+                <img src="img_menu/cuchariable_6.jpg" alt="CUCHAREABLE LIMÓN">
+            </div>
+            <div class="item-info">
+                <div class="item-header">
+                    <h3>CUCHAREABLE LIMÓN</h3>
+                    <div class="item-divider"></div>
+                    <span class="price">$17.500</span>
+                </div>
+                <p>Suave, natural y sin azúcar añadida. Una textura cremosa sobre una base crocante artesanal.</p>
+                <button class="btn-order" onclick="addToCart('CUCHAREABLE LIMÓN', 17500)">
+                    Pedir orden <i class="fab fa-whatsapp"></i>
+                </button>
+            </div>
+        </article>
+
+    </div>
 </main>
 
+<!-- MODAL DEL CARRITO -->
+<div class="cart-overlay" onclick="toggleCart(false)"></div>
+<div class="cart-modal">
+    <div class="cart-header">
+        <h2>Tu Pedido</h2>
+        <button class="close-cart" onclick="toggleCart(false)">✕ Cerrar</button>
+    </div>
+    
+    <div id="cart-items">
+        <!-- Elementos agregados dinámicamente -->
+    </div>
+
+    <div class="cart-footer">
+        <div class="total-row">
+            <span>Total:</span>
+            <span id="total">$0</span>
+        </div>
+        <a id="whatsappBtn" href="#" target="_blank">
+            Enviar Pedido a WhatsApp
+        </a>
+    </div>
+</div>
+
 <footer>
-<p>&copy; 2026 Beykly</p>
+    <p>&copy; 2026 Beykly &bull; Todos los derechos reservados.</p>
 </footer>
 
 <script>
-window.addEventListener("scroll",()=>{
-const header=document.getElementById("header");
-header.classList.toggle("scrolled",window.scrollY>50);
-});
+    let cart = [];
+    const WHATSAPP_NUMBER = "573001234567"; // Tu número sin el '+'
+
+    function toggleCart(open) {
+        const modal = document.querySelector('.cart-modal');
+        const overlay = document.querySelector('.cart-overlay');
+        if(open) {
+            modal.classList.add('active');
+            overlay.classList.add('active');
+        } else {
+            modal.classList.remove('active');
+            overlay.classList.remove('active');
+        }
+    }
+
+    function addToCart(name, price) {
+        const existingItem = cart.find(item => item.name === name);
+        if (existingItem) {
+            existingItem.quantity += 1;
+        } else {
+            cart.push({ name, price, quantity: 1 });
+        }
+        
+        const cartBtn = document.querySelector('.cart-btn');
+        cartBtn.classList.add('shake-animation');
+        setTimeout(() => cartBtn.classList.remove('shake-animation'), 400);
+
+        updateCartUI();
+    }
+
+    function changeQuantity(name, amount) {
+        const item = cart.find(item => item.name === name);
+        if (item) {
+            item.quantity += amount;
+            if (item.quantity <= 0) {
+                cart = cart.filter(i => i.name !== name);
+            }
+        }
+        updateCartUI();
+    }
+
+    function updateCartUI() {
+        const cartItemsContainer = document.getElementById('cart-items');
+        const cartCount = document.getElementById('cart-count');
+        const totalContainer = document.getElementById('total');
+        
+        cartItemsContainer.innerHTML = '';
+        let total = 0;
+        let totalCount = 0;
+
+        cart.forEach(item => {
+            total += item.price * item.quantity;
+            totalCount += item.quantity;
+
+            const itemElement = document.createElement('div');
+            itemElement.classList.add('cart-item');
+            itemElement.innerHTML = `
+                <div class="cart-item-info">
+                    <h4>${item.name}</h4>
+                    <p>$${(item.price * item.quantity).toLocaleString('es-CO')}</p>
+                </div>
+                <div class="cart-item-actions">
+                    <button onclick="changeQuantity('${item.name}', -1)">-</button>
+                    <span class="qty">${item.quantity}</span>
+                    <button onclick="changeQuantity('${item.name}', 1)">+</button>
+                </div>
+            `;
+            cartItemsContainer.appendChild(itemElement);
+        });
+
+        cartCount.innerText = totalCount;
+        totalContainer.innerText = `$${total.toLocaleString('es-CO')}`;
+        
+        const whatsappBtn = document.getElementById('whatsappBtn');
+        if (cart.length === 0) {
+            whatsappBtn.style.display = 'none';
+        } else {
+            whatsappBtn.style.display = 'flex';
+            let message = "Hola Beykly, me gustaría realizar este pedido gourmet:\n\n";
+            cart.forEach(item => {
+                message += `• ${item.quantity}x ${item.name} - $${(item.price * item.quantity).toLocaleString('es-CO')}\n`;
+            });
+            message += `\n*Total a pagar:* $${total.toLocaleString('es-CO')}`;
+            whatsappBtn.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+        }
+    }
+
+    updateCartUI();
 </script>
 
 </body>
